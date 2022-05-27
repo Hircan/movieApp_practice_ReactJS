@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+  <!-- JSX를 브라우저가 이해하는 문법으로 바꾸주는 역할 : babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- type="text/babel"로 지정해줘야함 -->
+  <script type="text/babel">
+    function App() {
+      // 첫번째 인자를 counter에 두번째인자를 setCounter에 저장 js에서 지원하는 강력한 기능
+      // React.useState(첫번째인자의 초기값)를 이용해 수동으로 업데이트 되야할 곳마다 ReactDOM.render()를 넣을 필요가 없어짐
+      // 두번째 인자를 modifier 함수라고 하는데 현재는 setCounter로 이름 지음
+      // modifier함수로 state를 바꿀때 컴포넌트 전체(현재는 App)가 재성성 돼서 렌더링됨
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <button>Hello</button>
+          <h3 id="title">click counter: {counter}</h3>
+          <button id="btn" onClick={onClick}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
