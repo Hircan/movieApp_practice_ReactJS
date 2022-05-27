@@ -16,7 +16,7 @@
       // 첫번째 인자를 counter에 두번째인자를 setCounter에 저장 js에서 지원하는 강력한 기능
       // React.useState(첫번째인자의 초기값)를 이용해 수동으로 업데이트 되야할 곳마다 ReactDOM.render()를 넣을 필요가 없어짐
       // 두번째 인자를 modifier 함수라고 하는데 현재는 setCounter로 이름 지음
-      // modifier함수로 state를 바꿀때 컴포넌트 전체(현재는 App)가 재성성 돼서 렌더링됨
+      // modifier함수로 state를 바꿀때 컴포넌트 전체(현재는 App)가 refresh되고 refresh된 값으로 리렌더링을 함
       const [counter, setCounter] = React.useState(0);
       const onClick = () => {
         setCounter(counter + 1);
