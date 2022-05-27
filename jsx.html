@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+  <!-- JSX를 브라우저가 이해하는 문법으로 바꾸주는 역할 : babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- type="text/babel"로 지정해줘야함 -->
+  <script type="text/babel">
+    //JSX로 element생성
+    //normal 함수 리턴을 넣어줘야함
+    //직접만든 컴포넌트(element)를 렌더링해서 다른곳에서 사용하기 위해선 대문자로 시작해야함
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello I'm a title
+        </h3>
+      );
+    }
+    //화살표함수 리턴 필요 없음
+    //직접만든 컴포넌트(element)를 렌더링해서 다른곳에서 사용하기 위해선 대문자로 시작해야함
+    const Button = () => (
+      <button id="btn" onClick={() => console.log("I'm clicked!")}>
+        Click me
+      </button>
+    );
+
+    //여러 요소를 만들어 보낼 때는 함수로 만들어서 보내야함
+    //만든 함수는 태그처럼 사용해서 보냄
+    //우리가 만든 요소는 전부 대문자로 시작해야함 html요소랑 착각하기 때문
+    //Container가 Title, Button, button을 렌더링하고 있음
+    const Container = () => (
+      <div>
+        <button>Hello</button>
+        <Title />
+        <Button />
+      </div>
+    );
+
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
